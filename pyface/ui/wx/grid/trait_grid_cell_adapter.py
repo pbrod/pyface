@@ -280,7 +280,8 @@ class TraitGridCellAdapter(PyGridCellEditor):
         )
 
     def dispose(self):
-        grid, _, _ = getattr(self, "_grid_info", (None, None, None))
-        pop_control(self._editor.control, grid)
-        if self._editor is not None:
+        if self._editor is not None: # pab new
+            grid, _, _ = getattr(self, "_grid_info", (None, None, None))
+            pop_control(self._editor.control, grid)
+        # if self._editor is not None:  # pab original
             self._editor.dispose()

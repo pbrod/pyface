@@ -413,7 +413,9 @@ class Grid(Widget):
         # _grid_table_base: otherwise, the grid can apparently generate an
         # extra _GridTableBase.GetAttr call after _GridTableBase.dispose()
         # has been called, leading to headaches and segfaults.
-        grid.Destroy()
+
+        grid.Close(force=True)  # pab new safer closing
+        # grid.Destroy()  # pab old
         self._grid_table_base.dispose()
         self._grid = None
 

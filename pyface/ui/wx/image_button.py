@@ -223,7 +223,8 @@ class ImageButton(Widget):
                     g = data[:, 0] + data[:, 1] + data[:, 2]
                     data[:, 0] = data[:, 1] = data[:, 2] = g
                     img.SetData(ravel(data.astype(dtype("uint8"))).tostring())
-                    img.SetColour(0, 0, 0)
+                    # img.SetColour(0, 0, 0)  # pab old call
+                    img.SetMaskColour(0, 0, 0)  # pab new call
                     self._mono_image = img.ConvertToBitmap()
                     self._img = None
                 image = self._mono_image
