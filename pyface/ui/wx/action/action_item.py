@@ -363,7 +363,7 @@ class _Tool(HasTraits):
             self.control = tool_bar.AddControl(widget, label)
             self.control_id = self.control.GetId()
         else:
-            self.control_id = wx.NewId()
+            self.control_id = wx.NewIdRef()
             self.control = tool_bar.AddTool(
                 self.control_id,
                 label,
